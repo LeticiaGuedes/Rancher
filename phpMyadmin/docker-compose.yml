@@ -1,0 +1,14 @@
+version: '2'
+services:
+    database:
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+    admin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - TESTSUITE_PASSWORD=root
+        ports:
+            - 7772:80/tcp
+        links:
+            - database:db
